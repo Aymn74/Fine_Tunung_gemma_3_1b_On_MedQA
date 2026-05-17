@@ -216,3 +216,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Hugging Face / Transformers
+huggingface/
+hf_cache/
+
+# Model outputs
+outputs/
+checkpoints/
+medqa_gemma_lora/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Dataset cache
+data/
+datasets/
+
+# Google Colab
+sample_data/
+
+# Tokens / secrets
+*.token
+secrets.json
