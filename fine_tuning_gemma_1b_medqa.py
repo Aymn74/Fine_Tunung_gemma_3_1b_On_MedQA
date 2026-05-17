@@ -28,10 +28,11 @@ LOCAL_ADAPTER_DIR = "medqa_gemma_lora"
 
 
 def check_gpu() -> None:
-    """Check GPU availability."""
+    """Check GPU availability before loading the 4-bit model."""
     print("CUDA available:", torch.cuda.is_available())
-    if torch.cuda.is_available():
-        print("GPU:", torch.cuda.get_device_name(0))
+    if not torch.cuda.is_available():
+        raise RuntimeError("CUDA GPU is required for this Unsloth 4-bit fine-tuning workflow.")
+    print("GPU:", torch.cuda.get_device_name(0))
 
 
 def load_base_model():
@@ -149,7 +150,8 @@ Return the correct option letter and answer only.
 <start_of_turn>model
 """
 
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+    device = next(model.parameters()).device
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
     outputs = model.generate(
         **inputs,

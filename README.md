@@ -36,16 +36,16 @@ https://huggingface.co/Ay74/medqa-gemma-1b-lora
 
 ```text
 .
-├── fine_tuning_gemma_1b_medqa.py  # Training and inference script
-├── requirements.txt               # Python dependencies
-├── README.md                      # Project documentation
-├── LICENSE                        # Apache License 2.0
-└── .gitignore                     # Ignored caches, checkpoints, and model outputs
+|-- fine_tuning_gemma_1b_medqa.py  # Training and inference script
+|-- requirements.txt               # Python dependencies
+|-- README.md                      # Project documentation
+|-- LICENSE                        # Apache License 2.0
+`-- .gitignore                     # Ignored caches, checkpoints, and model outputs
 ```
 
 ## Installation
 
-Use a GPU runtime. The original experiment was run on Google Colab with a Tesla T4.
+Use a CUDA GPU runtime. The original experiment was run on Google Colab with a Tesla T4.
 
 ```bash
 pip install -r requirements.txt
